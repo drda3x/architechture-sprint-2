@@ -1,35 +1,60 @@
-# pymongo-api
+# Шардирование
+После запуска приложение будет доступно по адресу http://localhost:8080/
 
-## Как запустить
-
-Запускаем mongodb и приложение
-
+Запускаем контейнеры
 ```shell
-docker compose up -d
+cd mongo-sharding && docker compose up -d && cd -
 ```
 
-Заполняем mongodb данными
-
+Инициализируем шарды
 ```shell
-./scripts/mongo-init.sh
+cd mongo-sharding && ./scripts/init.sh && cd -
 ```
 
-## Как проверить
-
-### Если вы запускаете проект на локальной машине
-
-Откройте в браузере http://localhost:8080
-
-### Если вы запускаете проект на предоставленной виртуальной машине
-
-Узнать белый ip виртуальной машины
-
+Проверяем наличие документов на шардах
 ```shell
-curl --silent http://ifconfig.me
+cd mongo-sharding && ./scripts/check.sh && cd -
 ```
 
-Откройте в браузере http://<ip виртуальной машины>:8080
+Останавливаем приложение
+```shell
+cd mongo-sharding && docker compose down && cd -
+```
 
-## Доступные эндпоинты
+# Репликация
+После запуска приложение будет доступно по адресу http://localhost:8080/
 
-Список доступных эндпоинтов, swagger http://<ip виртуальной машины>:8080/docs
+Запускаем контейнеры
+```shell
+cd mongo-sharding-repl && docker compose up -d && cd -
+```
+
+Инициализируем шарды
+```shell
+cd mongo-sharding-repl && ./scripts/init.sh && cd -
+```
+
+Останавливаем приложение
+```shell
+cd mongo-sharding-repl && docker compose down && cd -
+```
+
+# Кеширование
+После запуска приложение будет доступно по адресу http://localhost:8080/
+
+Запускаем контейнеры
+```shell
+cd mongo-sharding-repl-cache && docker compose up -d && cd -
+```
+
+Инициализируем шарды
+```shell
+cd mongo-sharding-repl-cache && ./scripts/init.sh && cd -
+```
+
+Останавливаем приложение
+```shell
+cd mongo-sharding-repl-cache && docker compose down && cd -
+```
+
+
