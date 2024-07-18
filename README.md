@@ -1,35 +1,16 @@
-# pymongo-api
-
+# Шардирование
 ## Как запустить
-
-Запускаем mongodb и приложение
-
+Запускаем контейнеры
 ```shell
-docker compose up -d
+cd mongo-sharding && docker compose up -d && cd -
 ```
 
-Заполняем mongodb данными
-
+Инициализируем шарды
 ```shell
-./scripts/mongo-init.sh
+cd mongo-sharding && ./scripts/init.sh && cd -
 ```
 
-## Как проверить
-
-### Если вы запускаете проект на локальной машине
-
-Откройте в браузере http://localhost:8080
-
-### Если вы запускаете проект на предоставленной виртуальной машине
-
-Узнать белый ip виртуальной машины
-
+Проверяем наличие документов на шардах
 ```shell
-curl --silent http://ifconfig.me
+cd mongo-sharding && ./scripts/check.sh && cd -
 ```
-
-Откройте в браузере http://<ip виртуальной машины>:8080
-
-## Доступные эндпоинты
-
-Список доступных эндпоинтов, swagger http://<ip виртуальной машины>:8080/docs
