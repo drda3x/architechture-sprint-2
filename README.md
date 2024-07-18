@@ -1,4 +1,5 @@
 # Шардирование
+После запуска приложение будет доступно по адресу http://localhost:8080/
 Запускаем контейнеры
 ```shell
 cd mongo-sharding && docker compose up -d && cd -
@@ -19,9 +20,8 @@ cd mongo-sharding && ./scripts/check.sh && cd -
 cd mongo-sharding && docker compose down && cd -
 ```
 
-Приложение доступно по адресу http://localhost:8080/
-
 # Репликация
+После запуска приложение будет доступно по адресу http://localhost:8080/
 Запускаем контейнеры
 ```shell
 cd mongo-sharding-repl && docker compose up -d && cd -
@@ -32,14 +32,14 @@ cd mongo-sharding-repl && docker compose up -d && cd -
 cd mongo-sharding-repl && ./scripts/init.sh && cd -
 ```
 
-Приложение доступно по адресу http://localhost:8080/
-
 Останавливаем приложение
 ```shell
 cd mongo-sharding-repl && docker compose down && cd -
 ```
 
 # Кеширование
+После запуска приложение будет доступно по адресу http://localhost:8080/
+
 Запускаем контейнеры
 ```shell
 cd mongo-sharding-repl-cache && docker compose up -d && cd -
@@ -49,8 +49,6 @@ cd mongo-sharding-repl-cache && docker compose up -d && cd -
 ```shell
 cd mongo-sharding-repl-cache && ./scripts/init.sh && cd -
 ```
-
-Приложение доступно по адресу http://localhost:8080/
 
 Останавливаем приложение
 ```shell
